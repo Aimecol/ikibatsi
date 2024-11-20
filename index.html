@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern UI Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jsgantt-improved/2.7.3/jsgantt-improved.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar Menu -->
+      <nav class="sidebar">
+        <div class="logo">Dashboard</div>
+        <ul class="menu">
+          <!-- Dashboard Section -->
+          <li>
+            <a href="#dashboard"
+              ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#" data-section="overview"
+                  ><i class="fas fa-chart-line"></i> Overview</a
+                >
+              </li>
+              <li>
+                <a href="#" data-section="recent-activities"
+                  ><i class="fas fa-history"></i> Recent Activities</a
+                >
+              </li>
+              <li>
+                <a href="#" data-section="announcements"
+                  ><i class="fas fa-bullhorn"></i> Announcements</a
+                >
+              </li>
+              <li>
+                <a href="#" data-section="calendar"
+                  ><i class="fas fa-calendar-alt"></i> Calendar</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Projects Section -->
+          <li>
+            <a href="#projects"><i class="fas fa-folder-open"></i> Projects</a>
+            <ul class="submenu">
+              <li>
+                <a href="#manage-projects" data-section="manage-projects"
+                  ><i class="fas fa-tasks"></i> Manage Projects</a
+                >
+              </li>
+              <li>
+                <a href="#project-timelines" data-section="project-timelines"
+                  ><i class="fas fa-stream"></i> Project Timelines</a
+                >
+              </li>
+              <li>
+                <a href="#resources-allocation"
+                  ><i class="fas fa-users"></i> Resources Allocation</a
+                >
+              </li>
+              <li>
+                <a href="#reports"><i class="fas fa-file-alt"></i> Reports</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Team Management Section -->
+          <li>
+            <a href="#team-management"
+              ><i class="fas fa-users"></i> Team Management</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#team-overview"
+                  ><i class="fas fa-eye"></i> Team Overview</a
+                >
+              </li>
+              <li>
+                <a href="#performance-tracking"
+                  ><i class="fas fa-chart-bar"></i> Performance Tracking</a
+                >
+              </li>
+              <li>
+                <a href="#schedules"
+                  ><i class="fas fa-calendar-check"></i> Schedules</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Financials Section -->
+          <li>
+            <a href="#financials"><i class="fas fa-wallet"></i> Financials</a>
+            <ul class="submenu">
+              <li>
+                <a href="#budget-management"
+                  ><i class="fas fa-coins"></i> Budget Management</a
+                >
+              </li>
+              <li>
+                <a href="#transactions"
+                  ><i class="fas fa-receipt"></i> Transactions</a
+                >
+              </li>
+              <li>
+                <a href="#financial-reports"
+                  ><i class="fas fa-chart-pie"></i> Financial Reports</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Innovation & Research Section -->
+          <li>
+            <a href="#innovation-research"
+              ><i class="fas fa-lightbulb"></i> Innovation & Research</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#research-insights"
+                  ><i class="fas fa-search"></i> Research Insights</a
+                >
+              </li>
+              <li>
+                <a href="#idea-management"
+                  ><i class="fas fa-brain"></i> Idea Management</a
+                >
+              </li>
+              <li>
+                <a href="#testing-lab"
+                  ><i class="fas fa-vial"></i> Testing Lab</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Communication Section -->
+          <li>
+            <a href="#communication"
+              ><i class="fas fa-comments"></i> Communication</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#internal-communication"
+                  ><i class="fas fa-user-friends"></i> Internal Communication</a
+                >
+              </li>
+              <li>
+                <a href="#external-communication"
+                  ><i class="fas fa-envelope"></i> External Communication</a
+                >
+              </li>
+              <li>
+                <a href="#social-media-management"
+                  ><i class="fas fa-share-alt"></i> Social Media Management</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Quality Assurance Section -->
+          <li>
+            <a href="#quality-assurance"
+              ><i class="fas fa-check-circle"></i> Quality Assurance</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#deliverables-review"
+                  ><i class="fas fa-tasks"></i> Deliverables Review</a
+                >
+              </li>
+              <li>
+                <a href="#standards-guidelines"
+                  ><i class="fas fa-book"></i> Standards & Guidelines</a
+                >
+              </li>
+              <li>
+                <a href="#quality-analytics"
+                  ><i class="fas fa-chart-line"></i> Quality Analytics</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Clients Section -->
+          <li>
+            <a href="#clients"><i class="fas fa-user-tie"></i> Clients</a>
+            <ul class="submenu">
+              <li>
+                <a href="#manage-clients"
+                  ><i class="fas fa-address-card"></i> Manage Clients</a
+                >
+              </li>
+              <li>
+                <a href="#communication-history"
+                  ><i class="fas fa-envelope-open-text"></i> Communication
+                  History</a
+                >
+              </li>
+              <li>
+                <a href="#client-analytics"
+                  ><i class="fas fa-chart-area"></i> Client Analytics</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Settings Section -->
+          <li>
+            <a href="#settings"><i class="fas fa-cogs"></i> Settings</a>
+            <ul class="submenu">
+              <li>
+                <a href="#account-settings"
+                  ><i class="fas fa-user-cog"></i> Account Settings</a
+                >
+              </li>
+              <li>
+                <a href="#roles-permissions"
+                  ><i class="fas fa-key"></i> Team Roles & Permissions</a
+                >
+              </li>
+              <li>
+                <a href="#platform-settings"
+                  ><i class="fas fa-palette"></i> Platform Settings</a
+                >
+              </li>
+              <li>
+                <a href="#api"><i class="fas fa-code"></i> API</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Help Center Section -->
+          <li>
+            <a href="#help-center"
+              ><i class="fas fa-question-circle"></i> Help Center</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#support-tickets"
+                  ><i class="fas fa-ticket-alt"></i> Support Tickets</a
+                >
+              </li>
+              <li>
+                <a href="#knowledge-base"
+                  ><i class="fas fa-book-open"></i> Knowledge Base</a
+                >
+              </li>
+              <li>
+                <a href="#contact-support"
+                  ><i class="fas fa-headset"></i> Contact Support</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Reports & Analytics Section -->
+          <li>
+            <a href="#reports-analytics"
+              ><i class="fas fa-chart-bar"></i> Reports & Analytics</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#dashboard-analytics"
+                  ><i class="fas fa-chart-line"></i> Dashboard Analytics</a
+                >
+              </li>
+              <li>
+                <a href="#custom-reports"
+                  ><i class="fas fa-file-invoice"></i> Custom Reports</a
+                >
+              </li>
+              <li>
+                <a href="#historical-data"
+                  ><i class="fas fa-archive"></i> Historical Data</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- Admin Panel Section -->
+          <li>
+            <a href="#admin-panel"
+              ><i class="fas fa-user-shield"></i> Admin Panel</a
+            >
+            <ul class="submenu">
+              <li>
+                <a href="#user-management"
+                  ><i class="fas fa-user-edit"></i> User Management</a
+                >
+              </li>
+              <li>
+                <a href="#system-configuration"
+                  ><i class="fas fa-tools"></i> System Configuration</a
+                >
+              </li>
+              <li>
+                <a href="#audit-logs"
+                  ><i class="fas fa-file-alt"></i> Audit Logs</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <h1>Welcome to the Dashboard</h1>
+        <header class="header">
+          <div class="header-left">
+            <button id="toggle-menu" class="menu-toggle">☰</button>
+          </div>
+          <div class="header-right">
+            <input type="text" placeholder="Search..." />
+          </div>
+        </header>
+
+        <section class="content">
+          <section id="overview" class="section active" data-section="overview">
+            <h2>Overview</h2>
+            <div class="overview-grid">
+              <!-- Current Projects -->
+              <div class="card">
+                <h3>Current Projects</h3>
+                <p>5 ongoing projects</p>
+                <button>View Details</button>
+              </div>
+              <!-- Tasks and Deadlines -->
+              <div class="card">
+                <h3>Tasks and Deadlines</h3>
+                <p>2 tasks due today</p>
+                <button>Check Tasks</button>
+              </div>
+              <!-- User Metrics -->
+              <div class="card">
+                <h3>User Metrics</h3>
+                <p>Productivity: 85%</p>
+                <button>View Metrics</button>
+              </div>
+              <!-- Notifications -->
+              <div class="card">
+                <h3>Notifications</h3>
+                <p>3 unread messages</p>
+                <button>View Notifications</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Activities Section -->
+          <section
+            id="recent-activities"
+            class="section"
+            data-section="recent-activities"
+          >
+            <h2>Recent Activities</h2>
+            <div class="activities">
+              <!-- User Actions -->
+              <div class="activity-category">
+                <h3>User Actions</h3>
+                <ul>
+                  <li>Uploaded "Project Proposal.docx"</li>
+                  <li>Completed task "Fix login issue"</li>
+                  <li>Updated profile picture</li>
+                </ul>
+              </div>
+              <!-- System Updates -->
+              <div class="activity-category">
+                <h3>System Updates</h3>
+                <ul>
+                  <li>Platform updated to v2.1.0</li>
+                  <li>Scheduled maintenance on Friday</li>
+                  <li>New feature: Dark Mode</li>
+                </ul>
+              </div>
+              <!-- Team Actions -->
+              <div class="activity-category">
+                <h3>Team Actions</h3>
+                <ul>
+                  <li>John assigned "Marketing Campaign" to you</li>
+                  <li>Mary commented on "Q3 Report"</li>
+                  <li>David marked "Bug #102" as resolved</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Quick Access -->
+            <div class="quick-access">
+              <h3>Quick Access</h3>
+              <ul>
+                <li><a href="#">Project Proposal.docx</a></li>
+                <li><a href="#">Marketing Campaign Plan</a></li>
+                <li><a href="#">Team Meeting Notes</a></li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Announcements Section -->
+          <section
+            id="announcements"
+            class="section"
+            data-section="announcements"
+          >
+            <h2>Announcements</h2>
+            <div class="announcement-category">
+              <h3>Company News</h3>
+              <ul>
+                <li>Upcoming team-building event on Friday</li>
+                <li>Holiday schedule for December announced</li>
+                <li>New CEO appointed starting January</li>
+              </ul>
+            </div>
+            <div class="announcement-category">
+              <h3>Project Milestones</h3>
+              <ul>
+                <li>Project Alpha completed successfully</li>
+                <li>Beta version of Project Delta launched</li>
+                <li>Final review of Project Sigma scheduled for Monday</li>
+              </ul>
+            </div>
+            <div class="announcement-category">
+              <h3>Operational Changes</h3>
+              <ul>
+                <li>New password policy implemented</li>
+                <li>System maintenance scheduled for Saturday night</li>
+                <li>Time tracking tool updated to v3.2</li>
+              </ul>
+            </div>
+            <div class="announcement-category">
+              <h3>Priority Notices</h3>
+              <ul>
+                <li>Submit performance reports by Friday</li>
+                <li>Mandatory meeting at 10 AM tomorrow</li>
+                <li>Deadline for tax filing is next week</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Calendar Section -->
+          <section id="calendar" class="section" data-section="calendar">
+            <h2>Calendar</h2>
+
+            <!-- Upcoming Deadlines -->
+            <div class="calendar-category">
+              <h3>Upcoming Deadlines</h3>
+              <ul>
+                <li>Submit Q4 report by November 25</li>
+                <li>Project Alpha milestone due November 28</li>
+                <li>Code review deadline on December 1</li>
+              </ul>
+            </div>
+
+            <!-- Scheduled Meetings -->
+            <div class="calendar-category">
+              <h3>Scheduled Meetings</h3>
+              <ul>
+                <li>Team sync: November 20, 10:00 AM</li>
+                <li>Client meeting: November 22, 2:00 PM</li>
+                <li>Project planning: November 24, 11:00 AM</li>
+              </ul>
+            </div>
+
+            <!-- Public Holidays -->
+            <div class="calendar-category">
+              <h3>Public Holidays</h3>
+              <ul>
+                <li>Thanksgiving: November 23</li>
+                <li>Christmas: December 25</li>
+                <li>New Year: January 1</li>
+              </ul>
+            </div>
+
+            <!-- Personal/Team Events -->
+            <div class="calendar-category">
+              <h3>Personal/Team Events</h3>
+              <ul>
+                <li>John's birthday: November 27</li>
+                <li>Team outing: December 5</li>
+                <li>Year-end celebration: December 20</li>
+              </ul>
+            </div>
+
+            <!-- Sync with External Calendars -->
+            <div class="calendar-category">
+              <h3>Sync with External Calendars</h3>
+              <p>
+                Connect to Google Calendar, Microsoft Outlook, or other apps for
+                seamless integration.
+              </p>
+              <button class="sync-btn">Sync Now</button>
+            </div>
+          </section>
+
+          <!-- Manage Projects Section -->
+          <section
+            id="manage-projects"
+            class="section"
+            data-section="manage-projects"
+          >
+            <h2>Manage Projects</h2>
+
+            <!-- Create New Project -->
+            <div class="project-category">
+              <h3>Create New Project</h3>
+              <p>
+                Start a new project by providing details such as the name,
+                description, deadlines, and assigned team members.
+              </p>
+              <a class="create-btn">Create Project</a>
+            </div>
+
+            <!-- View All Projects -->
+            <div class="project-category">
+              <h3>View All Projects</h3>
+              <ul class="project-list">
+                <li>
+                  <strong>Project Alpha</strong> - Status: In Progress
+                  <a href="#" class="view-project">View Details</a>
+                </li>
+                <li>
+                  <strong>Project Beta</strong> - Status: Completed
+                  <a href="#" class="view-project">View Details</a>
+                </li>
+                <li>
+                  <strong>Project Gamma</strong> - Status: On Hold
+                  <a href="#" class="view-project">View Details</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Update Project Status -->
+            <div class="project-category">
+              <h3>Update Project Status</h3>
+              <p>
+                Modify the status of projects to reflect their current state,
+                such as "In Progress," "On Hold," or "Completed."
+              </p>
+              <button class="update-btn">Update Status</button>
+            </div>
+          </section>
+
+          <!-- Create New Project Section -->
+          <section
+            id="create-new-project"
+            class="section"
+            data-section="create-new-project"
+          >
+            <h2>Create New Project</h2>
+            <form id="project-form" class="project-form">
+              <!-- Project Name -->
+              <div class="form-group">
+                <label for="project-name">Project Name:</label>
+                <input
+                  type="text"
+                  id="project-name"
+                  name="project-name"
+                  placeholder="Enter project name"
+                  required
+                />
+              </div>
+
+              <!-- Description -->
+              <div class="form-group">
+                <label for="project-description">Description:</label>
+                <textarea
+                  id="project-description"
+                  name="project-description"
+                  placeholder="Enter project description"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Objectives -->
+              <div class="form-group">
+                <label for="project-objectives">Objectives:</label>
+                <textarea
+                  id="project-objectives"
+                  name="project-objectives"
+                  placeholder="Enter project objectives"
+                ></textarea>
+              </div>
+
+              <!-- Deadline -->
+              <div class="form-group">
+                <label for="project-deadline">Deadline:</label>
+                <input
+                  type="date"
+                  id="project-deadline"
+                  name="project-deadline"
+                  required
+                />
+              </div>
+
+              <!-- Assign Team Members -->
+              <div class="form-group">
+                <label for="project-team">Assign Team Members:</label>
+                <input
+                  type="text"
+                  id="project-team"
+                  name="project-team"
+                  placeholder="Enter team member names, separated by commas"
+                  required
+                />
+              </div>
+
+              <!-- Project Goals -->
+              <div class="form-group">
+                <label for="project-goals">Project Goals:</label>
+                <textarea
+                  id="project-goals"
+                  name="project-goals"
+                  placeholder="Define project goals"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn-submit">Create Project</button>
+            </form>
+          </section>
+
+          <!-- Update Project Status Section -->
+          <section
+            id="update-project-status"
+            class="section"
+            data-section="update-project-status"
+          >
+            <h2>Update Project Status</h2>
+            <form id="update-status-form" class="status-form">
+              <!-- Select Project -->
+              <div class="form-group">
+                <label for="project-select">Select Project:</label>
+                <select id="project-select" name="project-select" required>
+                  <option value="">-- Select a Project --</option>
+                  <option value="project1">Project 1</option>
+                  <option value="project2">Project 2</option>
+                  <option value="project3">Project 3</option>
+                </select>
+              </div>
+
+              <!-- Current Status -->
+              <div class="form-group">
+                <label for="current-status">Current Status:</label>
+                <input
+                  type="text"
+                  id="current-status"
+                  name="current-status"
+                  placeholder="In Progress"
+                  readonly
+                />
+              </div>
+
+              <!-- Update Status -->
+              <div class="form-group">
+                <label for="update-status">Update Status:</label>
+                <select id="update-status" name="update-status" required>
+                  <option value="">-- Select New Status --</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="on-hold">On Hold</option>
+                  <option value="completed">Completed</option>
+                  <option value="archived">Archived</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn-submit">Update Status</button>
+            </form>
+          </section>
+
+          <!-- View Company Details Section -->
+          <section
+            id="view-company-details"
+            class="section"
+            data-section="view-company-details"
+          >
+            <h2>Company Details</h2>
+            <div class="company-details">
+              <div class="detail-item">
+                <h3>Company Name:</h3>
+                <p>Ikigugu Group Ltd</p>
+              </div>
+              <div class="detail-item">
+                <h3>Founded:</h3>
+                <p>2015</p>
+              </div>
+              <div class="detail-item">
+                <h3>Industry:</h3>
+                <p>Software Development & IT Solutions</p>
+              </div>
+              <div class="detail-item">
+                <h3>Headquarters:</h3>
+                <p>Kigali, Rwanda</p>
+              </div>
+              <div class="detail-item">
+                <h3>Core Services:</h3>
+                <ul>
+                  <li>Software Development</li>
+                  <li>Network Engineering</li>
+                  <li>Web Hosting</li>
+                  <li>Digital Marketing</li>
+                  <li>CCTV Solutions</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h3>Contact Email:</h3>
+                <p>info@ikigugugroup.rw</p>
+              </div>
+              <div class="detail-item">
+                <h3>Contact Phone:</h3>
+                <p>+250 123 456 789</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- View Project Details Section -->
+          <section
+            id="view-project-details"
+            class="section"
+            data-section="view-project-details"
+          >
+            <h2>Project Details</h2>
+            <div class="project-selector">
+              <label for="project-select">Select a Project:</label>
+              <select id="project-select">
+                <option value="" disabled selected>Choose a project</option>
+                <option value="1">Project 1: New Website Launch</option>
+                <option value="2">Project 2: Marketing Campaign</option>
+                <option value="3">Project 3: Product Development</option>
+              </select>
+            </div>
+            <div id="project-details-container" class="project-details">
+              <h3 id="project-title">No Project Selected</h3>
+              <ul id="project-info-list" class="project-info"></ul>
+            </div>
+          </section>
+
+          <!-- Project Timelines Section -->
+          <section
+            id="project-timelines"
+            class="section"
+            data-section="project-timelines"
+          >
+            <h2>Project Timelines</h2>
+
+            <!-- Gantt Chart -->
+            <div class="gantt-chart-container">
+              <h3>Gantt Chart</h3>
+              <div id="gantt-chart"></div>
+            </div>
+
+            <!-- Milestones Tracker -->
+            <div class="milestones-container">
+              <h3>Milestones Tracker</h3>
+              <ul id="milestones-list">
+                <!-- Dynamic Milestones will be added here -->
+              </ul>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsgantt-improved/2.7.3/jsgantt-improved.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
