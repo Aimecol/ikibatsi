@@ -18,8 +18,11 @@
     <div class="dashboard">
       <!-- Sidebar Menu -->
       <nav class="sidebar">
-        <div class="logo">Dashboard</div>
+        <div class="logo">
+          <img src="./images/Aimecol.png" alt="" />
+        </div>
         <ul class="menu">
+          <button id="close-menu" class="menu-close">&#10006;</button>
           <!-- Dashboard Section -->
           <li>
             <a href="#dashboard"
@@ -63,12 +66,16 @@
                 >
               </li>
               <li>
-                <a href="#resources-allocation"
+                <a
+                  href="#resources-allocation"
+                  data-section="resources-allocation"
                   ><i class="fas fa-users"></i> Resources Allocation</a
                 >
               </li>
               <li>
-                <a href="#reports"><i class="fas fa-file-alt"></i> Reports</a>
+                <a href="#reports" data-section="reports"
+                  ><i class="fas fa-file-alt"></i> Reports</a
+                >
               </li>
             </ul>
           </li>
@@ -79,17 +86,19 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#team-overview"
+                <a href="#team-overview" data-section="team-management"
                   ><i class="fas fa-eye"></i> Team Overview</a
                 >
               </li>
               <li>
-                <a href="#performance-tracking"
+                <a
+                  href="#performance-tracking"
+                  data-section="performance-tracking"
                   ><i class="fas fa-chart-bar"></i> Performance Tracking</a
                 >
               </li>
               <li>
-                <a href="#schedules"
+                <a href="#schedules" data-section="schedules"
                   ><i class="fas fa-calendar-check"></i> Schedules</a
                 >
               </li>
@@ -100,17 +109,17 @@
             <a href="#financials"><i class="fas fa-wallet"></i> Financials</a>
             <ul class="submenu">
               <li>
-                <a href="#budget-management"
+                <a href="#budget-management" data-section="financials-module"
                   ><i class="fas fa-coins"></i> Budget Management</a
                 >
               </li>
               <li>
-                <a href="#transactions"
+                <a href="#transactions" data-section="transactions-module"
                   ><i class="fas fa-receipt"></i> Transactions</a
                 >
               </li>
               <li>
-                <a href="#financial-reports"
+                <a href="#financial-reports" data-section="financial-reports"
                   ><i class="fas fa-chart-pie"></i> Financial Reports</a
                 >
               </li>
@@ -123,17 +132,17 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#research-insights"
+                <a href="#research-insights" data-section="innovation-research"
                   ><i class="fas fa-search"></i> Research Insights</a
                 >
               </li>
               <li>
-                <a href="#idea-management"
+                <a href="#idea-management" data-section="idea-management"
                   ><i class="fas fa-brain"></i> Idea Management</a
                 >
               </li>
               <li>
-                <a href="#testing-lab"
+                <a href="#testing-lab" data-section="testing-lab"
                   ><i class="fas fa-vial"></i> Testing Lab</a
                 >
               </li>
@@ -146,17 +155,21 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#internal-communication"
+                <a href="#internal-communication" data-section="communication"
                   ><i class="fas fa-user-friends"></i> Internal Communication</a
                 >
               </li>
               <li>
-                <a href="#external-communication"
+                <a
+                  href="#external-communication"
+                  data-section="external-communication"
                   ><i class="fas fa-envelope"></i> External Communication</a
                 >
               </li>
               <li>
-                <a href="#social-media-management"
+                <a
+                  href="#social-media-management"
+                  data-section="social-media-management"
                   ><i class="fas fa-share-alt"></i> Social Media Management</a
                 >
               </li>
@@ -169,17 +182,19 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#deliverables-review"
+                <a href="#deliverables-review" data-section="quality"
                   ><i class="fas fa-tasks"></i> Deliverables Review</a
                 >
               </li>
               <li>
-                <a href="#standards-guidelines"
+                <a
+                  href="#standards-guidelines"
+                  data-section="standards-guidelines"
                   ><i class="fas fa-book"></i> Standards & Guidelines</a
                 >
               </li>
               <li>
-                <a href="#quality-analytics"
+                <a href="#quality-analytics" data-section="quality-analytics"
                   ><i class="fas fa-chart-line"></i> Quality Analytics</a
                 >
               </li>
@@ -190,18 +205,20 @@
             <a href="#clients"><i class="fas fa-user-tie"></i> Clients</a>
             <ul class="submenu">
               <li>
-                <a href="#manage-clients"
+                <a href="#manage-clients" data-section="manage-clients"
                   ><i class="fas fa-address-card"></i> Manage Clients</a
                 >
               </li>
               <li>
-                <a href="#communication-history"
+                <a
+                  href="#communication-history"
+                  data-section="communication-history"
                   ><i class="fas fa-envelope-open-text"></i> Communication
                   History</a
                 >
               </li>
               <li>
-                <a href="#client-analytics"
+                <a href="#client-analytics" data-section="client-analytics"
                   ><i class="fas fa-chart-area"></i> Client Analytics</a
                 >
               </li>
@@ -212,22 +229,24 @@
             <a href="#settings"><i class="fas fa-cogs"></i> Settings</a>
             <ul class="submenu">
               <li>
-                <a href="#account-settings"
+                <a href="#account-settings" data-section="settings"
                   ><i class="fas fa-user-cog"></i> Account Settings</a
                 >
               </li>
               <li>
-                <a href="#roles-permissions"
+                <a href="#roles-permissions" data-section="roles-permissions"
                   ><i class="fas fa-key"></i> Team Roles & Permissions</a
                 >
               </li>
               <li>
-                <a href="#platform-settings"
+                <a href="#platform-settings" data-section="platform-settings"
                   ><i class="fas fa-palette"></i> Platform Settings</a
                 >
               </li>
               <li>
-                <a href="#api"><i class="fas fa-code"></i> API</a>
+                <a href="#api" data-section="api"
+                  ><i class="fas fa-code"></i> API</a
+                >
               </li>
             </ul>
           </li>
@@ -305,13 +324,22 @@
 
       <!-- Main Content -->
       <div class="main-content">
-        <h1>Welcome to the Dashboard</h1>
         <header class="header">
           <div class="header-left">
-            <button id="toggle-menu" class="menu-toggle">☰</button>
+            <button id="toggle-menu" class="menu-toggle">&#9776;</button>
           </div>
           <div class="header-right">
             <input type="text" placeholder="Search..." />
+          </div>
+          <div class="profile-img">
+            <img src="./images/Aime.jpg" alt="" />
+            <div class="profile-details">
+              <p>Aimecol</p>
+              <a href="#"><i class="fa-solid fa-gear"></i> Edit</a>
+              <a href="./pages/logout.php"
+                ><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</a
+              >
+            </div>
           </div>
         </header>
 
@@ -513,15 +541,15 @@
               <ul class="project-list">
                 <li>
                   <strong>Project Alpha</strong> - Status: In Progress
-                  <a href="#" class="view-project">View Details</a>
+                  <a href="#" class="view-project">Details</a>
                 </li>
                 <li>
                   <strong>Project Beta</strong> - Status: Completed
-                  <a href="#" class="view-project">View Details</a>
+                  <a href="#" class="view-project">Details</a>
                 </li>
                 <li>
                   <strong>Project Gamma</strong> - Status: On Hold
-                  <a href="#" class="view-project">View Details</a>
+                  <a href="#" class="view-project">Details</a>
                 </li>
               </ul>
             </div>
@@ -751,6 +779,683 @@
               <ul id="milestones-list">
                 <!-- Dynamic Milestones will be added here -->
               </ul>
+            </div>
+          </section>
+
+          <section
+            id="resources-allocation"
+            class="section"
+            data-section="resources-allocation"
+          >
+            <h2>Resources Allocation</h2>
+
+            <!-- Assign Team Members -->
+            <div class="assign-team">
+              <h3>Assign Team Members</h3>
+              <form id="assign-team-form">
+                <label for="task">Select Task:</label>
+                <select id="task" name="task" required>
+                  <option value="" disabled selected>Select Task</option>
+                  <option value="1">Task 1</option>
+                  <option value="2">Task 2</option>
+                </select>
+
+                <label for="team-member">Select Team Member:</label>
+                <select id="team-member" name="team-member" required>
+                  <option value="" disabled selected>Select Team Member</option>
+                  <option value="john-doe">John Doe</option>
+                  <option value="jane-smith">Jane Smith</option>
+                </select>
+
+                <button type="submit">Assign</button>
+              </form>
+            </div>
+
+            <!-- Track Resource Usage -->
+            <div class="track-resources">
+              <h3>Track Resource Usage</h3>
+              <table id="resource-usage-table">
+                <thead>
+                  <tr>
+                    <th>Resource</th>
+                    <th>Task</th>
+                    <th>Hours Used</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John Doe</td>
+                    <td>Task 1</td>
+                    <td>20</td>
+                    <td>On Track</td>
+                  </tr>
+                  <tr>
+                    <td>Jane Smith</td>
+                    <td>Task 2</td>
+                    <td>15</td>
+                    <td>Underutilized</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" data-section="reports" id="reports">
+            <h2>Reports</h2>
+
+            <!-- Progress Reports -->
+            <div class="progress-reports">
+              <h3>Progress Reports</h3>
+              <p>
+                View detailed progress of your projects, including completed and
+                pending tasks, milestones, and delays.
+              </p>
+              <button id="generate-progress-report">Generate Report</button>
+              <div id="progress-report-output" style="margin-top: 15px"></div>
+            </div>
+
+            <!-- Project Performance Analytics -->
+            <div class="project-performance">
+              <h3>Project Performance Analytics</h3>
+              <p>
+                Analyze the performance of your projects, including task
+                completion rates, resource efficiency, and team productivity.
+              </p>
+              <button id="view-performance-analytics">View Analytics</button>
+              <div
+                id="performance-analytics-output"
+                style="margin-top: 15px"
+              ></div>
+            </div>
+          </section>
+
+          <section
+            class="section"
+            data-section="team-management"
+            id="team-management"
+          >
+            <h2>Team Management</h2>
+
+            <!-- Team Overview -->
+            <div class="team-overview">
+              <h3>Team Overview</h3>
+              <p>
+                Gain a high-level view of all team members, their roles, and
+                permissions.
+              </p>
+            </div>
+
+            <!-- View All Members -->
+            <div class="team-management">
+              <h3>Team Members Management</h3>
+              <button id="view-members-btn">View Members</button>
+              <button id="add-member-btn">Add Member</button>
+              <button id="remove-member-btn">Remove Member</button>
+
+              <div id="members-output" style="margin-top: 15px"></div>
+              <div id="members-form-output" style="margin-top: 15px"></div>
+            </div>
+
+            <!-- Roles & Permissions -->
+            <div class="roles-permissions">
+              <h3>Roles & Permissions</h3>
+              <button id="manage-roles-btn">View Roles</button>
+              <button id="add-role-btn">Add Role</button>
+              <button id="remove-role-btn">Remove Role</button>
+
+              <div id="roles-output" style="margin-top: 15px"></div>
+              <div id="roles-form-output" style="margin-top: 15px"></div>
+            </div>
+          </section>
+
+          <section
+            class="section"
+            data-section="performance-tracking"
+            id="performance-tracking"
+          >
+            <h3>Performance Tracking</h3>
+            <button id="view-contributions-btn">
+              View Member Contributions
+            </button>
+            <button id="view-skill-matrix-btn">View Skill Matrix</button>
+
+            <div id="performance-output" style="margin-top: 15px"></div>
+          </section>
+
+          <section class="section" id="schedules" data-section="schedules">
+            <h3>Schedules</h3>
+            <button id="view-work-schedules-btn">Work Schedules</button>
+            <button id="view-meetings-btn">Meetings and Availability</button>
+
+            <div id="schedules-output" style="margin-top: 15px"></div>
+          </section>
+
+          <section
+            id="financials-module"
+            class="section"
+            data-section="financials-module"
+          >
+            <div class="financials-module">
+              <h3>Financials Module</h3>
+              <button id="add-new-budget-btn">Add New Budget</button>
+              <button id="view-current-budgets-btn">
+                View Current Budgets
+              </button>
+              <button id="allocate-resources-btn">Allocate Resources</button>
+
+              <div id="financials-content" style="margin-top: 20px"></div>
+            </div>
+          </section>
+
+          <section
+            id="transactions-module"
+            class="section"
+            data-section="transactions-module"
+          >
+            <h3>Transactions</h3>
+            <button id="income-expenses-btn">Income & Expenses</button>
+            <button id="payment-history-btn">Payment History</button>
+            <button id="pending-approvals-btn">Pending Approvals</button>
+
+            <div id="transactions-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="financial-reports"
+            class="section"
+            data-section="financial-reports"
+          >
+            <h3>Financial Reports</h3>
+            <button id="monthly-summary-btn">Monthly Summary</button>
+            <button id="annual-statements-btn">
+              Annual Financial Statements
+            </button>
+
+            <div id="financial-reports-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="innovation-research"
+            class="section"
+            data-section="innovation-research"
+          >
+            <h3>Innovation & Research</h3>
+            <button id="new-trends-btn">New Trends</button>
+            <button id="competitor-analysis-btn">Competitor Analysis</button>
+
+            <div id="research-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="idea-management"
+            class="section"
+            data-section="idea-management"
+          >
+            <h3>Idea Management</h3>
+            <button id="submit-ideas-btn">Submit New Ideas</button>
+            <button id="review-ideas-btn">Review Ideas</button>
+            <button id="archive-ideas-btn">Archive Ideas</button>
+
+            <div id="idea-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section id="testing-lab" class="section" data-section="testing-lab">
+            <h3>Testing Lab</h3>
+            <button id="pilot-projects-btn">Pilot Projects</button>
+            <button id="track-results-btn">Track Testing Results</button>
+
+            <div id="testing-lab-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="communication"
+            class="section"
+            data-section="communication"
+          >
+            <h3>Communication Module</h3>
+            <button id="announcements-btn">Announcements</button>
+            <button id="chat-btn">Chat/Group Discussions</button>
+            <button id="meeting-notes-btn">Meeting Notes</button>
+
+            <div id="communication-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="external-communication"
+            class="section"
+            data-section="external-communication"
+          >
+            <h3>External Communication Module</h3>
+            <button id="stakeholder-updates-btn">Stakeholder Updates</button>
+            <button id="email-campaigns-btn">Email Campaigns</button>
+            <button id="client-feedback-btn">Client Feedback</button>
+
+            <div
+              id="external-communication-content"
+              style="margin-top: 20px"
+            ></div>
+          </section>
+
+          <section
+            id="social-media-management"
+            class="section"
+            data-section="social-media-management"
+          >
+            <h3>Social Media Management</h3>
+            <button id="schedule-posts-btn">Schedule Posts</button>
+            <button id="monitor-engagement-btn">Monitor Engagement</button>
+
+            <div id="social-media-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section id="quality" class="section" data-section="quality">
+            <h3>Quality Assurance (QA) Module</h3>
+            <button id="pending-reviews-btn">View Pending Reviews</button>
+            <button id="completed-reviews-btn">View Completed Reviews</button>
+
+            <div id="qa-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="standards-guidelines"
+            class="section"
+            data-section="standards-guidelines"
+          >
+            <h3>Standards & Guidelines</h3>
+            <button id="view-standards-btn">View Quality Standards</button>
+            <button id="update-guidelines-btn">
+              Update Quality Guidelines
+            </button>
+
+            <div id="sg-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="quality-analytics"
+            class="section"
+            data-section="quality-analytics"
+          >
+            <h3>Quality Analytics</h3>
+            <button id="view-feedback-btn">Feedback & Improvements</button>
+            <button id="view-reports-btn">Reports & Trends</button>
+
+            <div id="qaulity-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="manage-clients"
+            class="section"
+            data-section="manage-clients"
+          >
+            <h3>Manage Clients</h3>
+            <button id="add-client-btn">Add New Client</button>
+            <button id="view-clients-btn">View All Clients</button>
+            <button id="view-archived-clients-btn">
+              View Archived Clients
+            </button>
+
+            <div id="clients-content" style="margin-top: 20px"></div>
+          </section>
+
+          <section
+            id="communication-history"
+            class="section"
+            data-section="communication-history"
+          >
+            <h3>Communication History</h3>
+
+            <!-- Log Email -->
+            <div class="log-email">
+              <h4>Log an Email</h4>
+              <form id="email-form">
+                <input
+                  type="text"
+                  id="email-client-id"
+                  placeholder="Client ID"
+                  required
+                />
+                <input
+                  type="text"
+                  id="email-subject"
+                  placeholder="Subject"
+                  required
+                />
+                <textarea
+                  id="email-content"
+                  placeholder="Email Content"
+                  required
+                ></textarea>
+                <input type="datetime-local" id="email-timestamp" required />
+                <button
+                  type="button"
+                  onclick="logEmail(
+                document.getElementById('email-client-id').value,
+                document.getElementById('email-subject').value,
+                document.getElementById('email-content').value,
+                document.getElementById('email-timestamp').value
+            )"
+                >
+                  Log Email
+                </button>
+              </form>
+            </div>
+
+            <!-- Log Meeting -->
+            <div class="log-meeting">
+              <h4>Log a Meeting</h4>
+              <form id="meeting-form">
+                <input
+                  type="text"
+                  id="meeting-client-id"
+                  placeholder="Client ID"
+                  required
+                />
+                <input
+                  type="text"
+                  id="meeting-title"
+                  placeholder="Title"
+                  required
+                />
+                <textarea
+                  id="meeting-notes"
+                  placeholder="Meeting Notes"
+                  required
+                ></textarea>
+                <input type="date" id="meeting-date" required />
+                <button
+                  type="button"
+                  onclick="logMeeting(
+                document.getElementById('meeting-client-id').value,
+                document.getElementById('meeting-title').value,
+                document.getElementById('meeting-notes').value,
+                document.getElementById('meeting-date').value
+                )"
+                >
+                  Log Meeting
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section
+            id="client-analytics"
+            class="section"
+            data-section="client-analytics"
+          >
+            <h3>Client Analytics</h3>
+
+            <!-- Log Engagement -->
+            <div class="log-engagement">
+              <h4>Log Engagement</h4>
+              <form id="engagement-form">
+                <input
+                  type="text"
+                  id="engagement-client-id"
+                  placeholder="Client ID"
+                  required
+                />
+                <input
+                  type="number"
+                  id="email-open-rate"
+                  placeholder="Email Open Rate (%)"
+                  required
+                />
+                <input
+                  type="number"
+                  id="response-time"
+                  placeholder="Response Time (hours)"
+                  required
+                />
+                <input
+                  type="number"
+                  id="event-participation"
+                  placeholder="Event Participation (count)"
+                  required
+                />
+                <button
+                  type="button"
+                  onclick="logEngagement(
+                document.getElementById('engagement-client-id').value,
+                document.getElementById('email-open-rate').value,
+                document.getElementById('response-time').value,
+                document.getElementById('event-participation').value
+            )"
+                >
+                  Log Engagement
+                </button>
+              </form>
+            </div>
+
+            <!-- Log Feedback -->
+            <div class="log-feedback">
+              <h4>Log Feedback</h4>
+              <form id="feedback-form">
+                <input
+                  type="text"
+                  id="feedback-client-id"
+                  placeholder="Client ID"
+                  required
+                />
+                <textarea
+                  id="feedback-content"
+                  placeholder="Feedback Content"
+                  required
+                ></textarea>
+                <input
+                  type="number"
+                  id="feedback-rating"
+                  placeholder="Rating (out of 5)"
+                  required
+                />
+                <button
+                  type="button"
+                  onclick="logFeedback(
+                document.getElementById('feedback-client-id').value,
+                document.getElementById('feedback-content').value,
+                document.getElementById('feedback-rating').value
+            )"
+                >
+                  Log Feedback
+                </button>
+                <div id="analytics-content"></div>
+              </form>
+            </div>
+          </section>
+
+          <section id="settings" class="section" data-section="settings">
+            <h2>Settings</h2>
+
+            <!-- Account Settings Section -->
+            <div class="settings-section">
+              <h3>Account Settings</h3>
+
+              <!-- Update Profile -->
+              <div class="settings-item">
+                <h4>Update Profile</h4>
+                <form id="update-profile-form">
+                  <input
+                    type="text"
+                    id="profile-name"
+                    placeholder="Full Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    id="profile-email"
+                    placeholder="Email Address"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    id="profile-phone"
+                    placeholder="Phone Number"
+                  />
+                  <input type="file" id="profile-picture" accept="image/*" />
+                  <button type="button" onclick="updateProfile()">
+                    Save Changes
+                  </button>
+                </form>
+              </div>
+
+              <!-- Change Password -->
+              <div class="settings-item">
+                <h4>Change Password</h4>
+                <form id="change-password-form">
+                  <input
+                    type="password"
+                    id="current-password"
+                    placeholder="Current Password"
+                    required
+                  />
+                  <input
+                    type="password"
+                    id="new-password"
+                    placeholder="New Password"
+                    required
+                  />
+                  <div id="password-strength" class="strength-meter">
+                    Strength: Weak
+                  </div>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    placeholder="Confirm New Password"
+                    required
+                  />
+                  <button type="button" onclick="changePassword()">
+                    Update Password
+                  </button>
+                </form>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="roles-permissions"
+            class="section"
+            data-section="roles-permissions"
+          >
+            <h2>Team Roles & Permissions</h2>
+
+            <!-- Create/Edit Roles Section -->
+            <div class="roles-section">
+              <h3>Create/Edit Roles</h3>
+              <form id="create-edit-role-form">
+                <input
+                  type="text"
+                  id="role-name"
+                  placeholder="Role Name"
+                  required
+                />
+                <textarea
+                  id="role-description"
+                  placeholder="Role Description"
+                ></textarea>
+                <div class="permissions-list">
+                  <label
+                    ><input type="checkbox" value="view" /> View Data</label
+                  >
+                  <label
+                    ><input type="checkbox" value="edit" /> Edit Data</label
+                  >
+                  <label
+                    ><input type="checkbox" value="delete" /> Delete Data</label
+                  >
+                  <label
+                    ><input type="checkbox" value="admin" /> Admin Access</label
+                  >
+                </div>
+                <button type="button" onclick="saveRole()">Save Role</button>
+              </form>
+            </div>
+
+            <!-- Assign Permissions Section -->
+            <div class="permissions-section">
+              <h3>Assign Permissions</h3>
+              <form id="assign-permissions-form">
+                <select id="select-role">
+                  <option value="" disabled selected>Select Role</option>
+                  <option value="manager">Manager</option>
+                  <option value="editor">Editor</option>
+                  <option value="viewer">Viewer</option>
+                </select>
+                <select id="select-user">
+                  <option value="" disabled selected>Select User</option>
+                  <option value="john_doe">John Doe</option>
+                  <option value="jane_smith">Jane Smith</option>
+                </select>
+                <button type="button" onclick="assignPermissions()">
+                  Assign Permissions
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section
+            id="platform-settings"
+            class="section"
+            data-section="platform-settings"
+          >
+            <h2>Platform Settings</h2>
+
+            <!-- Theme Customization Section -->
+            <div class="theme-customization">
+              <h3>Theme Customization</h3>
+              <label>
+                <input type="checkbox" id="theme-toggle" /> Enable Dark Mode
+              </label>
+              <button onclick="openThemeEditor()">Customize Theme</button>
+            </div>
+
+            <div class="notification-preferences">
+              <h3>Notification Preferences</h3>
+              <form>
+                <label> <input type="checkbox" /> Email Notifications </label>
+                <label> <input type="checkbox" /> In-App Notifications </label>
+                <label> <input type="checkbox" /> Push Notifications </label>
+                <select>
+                  <option value="immediate">Immediate</option>
+                  <option value="daily">Daily Digest</option>
+                  <option value="weekly">Weekly Summary</option>
+                </select>
+                <button type="submit">Save Preferences</button>
+              </form>
+            </div>
+          </section>
+
+          <section id="api" class="section" data-section="api">
+            <h2>API Integration</h2>
+
+            <!-- Generate API Keys -->
+            <div class="generate-api-keys">
+              <h3>Generate API Keys</h3>
+              <p>Generate API keys to integrate with third-party services.</p>
+              <button onclick="generateApiKey()">Generate Key</button>
+              <div id="api-key-container" style="margin-top: 10px"></div>
+            </div>
+
+            <div class="manage-api-integrations">
+              <h3>Manage API Integrations</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Integration Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Slack Integration</td>
+                    <td>Enabled</td>
+                    <td>
+                      <button onclick="disableIntegration()">Disable</button>
+                      <button onclick="viewLogs()">View Logs</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
         </section>
