@@ -2282,10 +2282,532 @@ function generateApiKey() {
     `;
 }
 
-function disableIntegration() {
-  alert("Integration has been disabled.");
+function showTicketModal(ticketId) {
+  // Fetch ticket details via API (mock data used here)
+  document.getElementById("ticket-modal").style.display = "flex";
 }
 
-function viewLogs() {
-  alert("Viewing logs for this integration.");
+function closeModal() {
+  document.getElementById("ticket-modal").style.display = "none";
 }
+
+document
+  .getElementById("modal-update-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const message = document.getElementById("modal-update-message").value;
+    alert(`Your update has been submitted: ${message}`);
+    // Implement API call to save the update in the database
+    closeModal();
+  });
+
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const answer = button.nextElementSibling;
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  });
+});
+
+document.getElementById("search-bar").addEventListener("input", function () {
+  const query = this.value.toLowerCase();
+  document.querySelectorAll(".faq-question, .tutorial h4").forEach((item) => {
+    if (item.textContent.toLowerCase().includes(query)) {
+      item.closest("li, .tutorial").style.display = "";
+    } else {
+      item.closest("li, .tutorial").style.display = "none";
+    }
+  });
+});
+
+document.getElementById("open-chat").addEventListener("click", () => {
+  document.getElementById("chat-box").style.display = "block";
+});
+
+document.getElementById("close-chat").addEventListener("click", () => {
+  document.getElementById("chat-box").style.display = "none";
+});
+
+document.getElementById("send-message").addEventListener("click", () => {
+  const input = document.getElementById("chat-input");
+  const message = input.value.trim();
+  if (message) {
+    const chatBody = document.querySelector(".chat-body");
+    chatBody.innerHTML += `<div class="chat-message user">${message}</div>`;
+    input.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Simulated bot response
+    setTimeout(() => {
+      chatBody.innerHTML += `<div class="chat-message bot">Thank you for your message. We'll get back to you shortly.</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 1000);
+  }
+});
+
+document
+  .getElementById("email-support-form")
+  .addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert(
+      "Your message has been sent. You will receive a confirmation email shortly."
+    );
+    e.target.reset();
+  });
+
+// Handle "Generate New Report" Form Submission
+document
+  .getElementById("generateReportForm")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Collect Form Data
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const department = document.getElementById("department").value;
+    const metrics = Array.from(
+      document.getElementById("metrics").selectedOptions
+    ).map((option) => option.value);
+    const format = document.getElementById("format").value;
+
+    // Log or Send Data to Backend
+    console.log({
+      startDate,
+      endDate,
+      department,
+      metrics,
+      format,
+    });
+
+    // Simulate Report Generation
+    alert(
+      `Report generation started for ${department}. Check your notifications.`
+    );
+  });
+
+// Handle "Schedule Report" Form Submission
+document
+  .getElementById("scheduleReportForm")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Collect Form Data
+    const reportType = document.getElementById("reportType").value;
+    const email = document.getElementById("email").value;
+    const timezone = document.getElementById("timezone").value;
+
+    // Log or Send Data to Backend
+    console.log({
+      reportType,
+      email,
+      timezone,
+    });
+
+    // Simulate Scheduling Confirmation
+    alert(
+      `Report scheduled as ${reportType}. Notifications will be sent to ${email}.`
+    );
+  });
+
+// script.js
+
+// Sample Data for Reports
+const reports = [
+  {
+    id: 1,
+    title: "Monthly Sales Report",
+    category: "sales",
+    date: "2024-11-01",
+    tags: ["monthly", "sales"],
+  },
+  {
+    id: 2,
+    title: "Customer Feedback Analysis",
+    category: "marketing",
+    date: "2024-10-15",
+    tags: ["feedback", "marketing"],
+  },
+  {
+    id: 3,
+    title: "Development Progress Overview",
+    category: "development",
+    date: "2024-09-30",
+    tags: ["development", "progress"],
+  },
+];
+
+// Load Reports Initially
+document.addEventListener("DOMContentLoaded", loadReports);
+
+// Search Button Event Listener
+document
+  .getElementById("searchButton")
+  .addEventListener("click", filterReports);
+
+function loadReports() {
+  const reportList = document.getElementById("reportItems");
+  reportList.innerHTML = ""; // Clear existing items
+
+  reports.forEach((report) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+            <span>
+                <strong>${report.title}</strong>
+                <br>
+                <small>${report.date} - ${report.category}</small>
+            </span>
+            <button class="download-btn" onclick="downloadReport(${report.id})">Download</button>
+        `;
+    reportList.appendChild(listItem);
+  });
+}
+
+function filterReports() {
+  const keyword = document.getElementById("searchKeyword").value.toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+  const startDate = document.getElementById("startDateFilter").value;
+  const endDate = document.getElementById("endDateFilter").value;
+
+  const filteredReports = reports.filter((report) => {
+    const matchesKeyword =
+      report.title.toLowerCase().includes(keyword) ||
+      report.tags.some((tag) => tag.includes(keyword));
+    const matchesCategory = category ? report.category === category : true;
+    const matchesDate =
+      (!startDate || new Date(report.date) >= new Date(startDate)) &&
+      (!endDate || new Date(report.date) <= new Date(endDate));
+
+    return matchesKeyword && matchesCategory && matchesDate;
+  });
+
+  displayReports(filteredReports);
+}
+
+function displayReports(filteredReports) {
+  const reportList = document.getElementById("reportItems");
+  reportList.innerHTML = ""; // Clear existing items
+
+  if (filteredReports.length > 0) {
+    filteredReports.forEach((report) => {
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `
+                <span>
+                    <strong>${report.title}</strong>
+                    <br>
+                    <small>${report.date} - ${report.category}</small>
+                </span>
+                <button class="download-btn" onclick="downloadReport(${report.id})">Download</button>
+            `;
+      reportList.appendChild(listItem);
+    });
+  } else {
+    reportList.innerHTML = "<li>No reports found.</li>";
+  }
+}
+
+function downloadReport(reportId) {
+  const report = reports.find((r) => r.id === reportId);
+  if (report) {
+    alert(`Downloading: ${report.title}`);
+    // Implement actual download logic here
+  } else {
+    alert("Report not found!");
+  }
+}
+
+// script.js
+
+// Sample Data
+let users = [
+  { username: "admin", email: "admin@example.com", role: "admin" },
+  { username: "editor1", email: "editor1@example.com", role: "editor" },
+];
+
+let logs = [
+  {
+    username: "admin",
+    activity: "Logged In",
+    datetime: "2024-11-18T09:00",
+    ip: "192.168.0.1",
+  },
+  {
+    username: "editor1",
+    activity: "Edited Post",
+    datetime: "2024-11-18T10:30",
+    ip: "192.168.0.2",
+  },
+];
+
+// Display Users
+function displayUsers() {
+  const userTableBody = document.getElementById("userTableBody");
+  userTableBody.innerHTML = ""; // Clear existing data
+  users.forEach((user, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${user.username}</td>
+            <td>${user.email}</td>
+            <td>${user.role}</td>
+            <td>
+                <button onclick="editUser(${index})">Edit</button>
+                <button onclick="deleteUser(${index})">Delete</button>
+            </td>
+        `;
+    userTableBody.appendChild(row);
+  });
+}
+
+// Display Logs
+function displayLogs() {
+  const logTableBody = document.getElementById("logTableBody");
+  logTableBody.innerHTML = ""; // Clear existing data
+  logs.forEach((log) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${log.username}</td>
+            <td>${log.activity}</td>
+            <td>${log.datetime}</td>
+            <td>${log.ip}</td>
+        `;
+    logTableBody.appendChild(row);
+  });
+}
+
+// Add New User
+document.getElementById("createUserBtn").addEventListener("click", () => {
+  document.getElementById("userFormContainer").classList.toggle("hidden");
+});
+
+document.getElementById("userForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const role = document.getElementById("role").value;
+
+  users.push({ username, email, role });
+  displayUsers();
+  document.getElementById("userForm").reset();
+  document.getElementById("userFormContainer").classList.add("hidden");
+});
+
+// Edit User
+function editUser(index) {
+  const user = users[index];
+  document.getElementById("username").value = user.username;
+  document.getElementById("email").value = user.email;
+  document.getElementById("role").value = user.role;
+
+  users.splice(index, 1); // Remove user temporarily
+  document.getElementById("userFormContainer").classList.remove("hidden");
+}
+
+// Delete User
+function deleteUser(index) {
+  users.splice(index, 1);
+  displayUsers();
+}
+
+// Search Logs
+document.getElementById("filterLogsBtn").addEventListener("click", () => {
+  const keyword = document.getElementById("searchLogs").value.toLowerCase();
+  const dateFilter = document.getElementById("filterDate").value;
+
+  const filteredLogs = logs.filter((log) => {
+    const matchesKeyword =
+      log.username.toLowerCase().includes(keyword) ||
+      log.activity.toLowerCase().includes(keyword) ||
+      log.ip.includes(keyword);
+    const matchesDate = dateFilter ? log.datetime.startsWith(dateFilter) : true;
+    return matchesKeyword && matchesDate;
+  });
+
+  displayLogs(filteredLogs);
+});
+
+// Initial Load
+displayUsers();
+displayLogs();
+
+// script.js
+
+// Mock Data for Backup History
+let backupHistory = [
+  { date: "2024-11-18", time: "09:00 AM", status: "Successful" },
+  { date: "2024-11-17", time: "05:00 PM", status: "Successful" },
+  { date: "2024-11-16", time: "11:30 AM", status: "Failed" },
+];
+
+// Display Backup History
+function displayBackupHistory() {
+  const tableBody = document.getElementById("backupHistoryTableBody");
+  tableBody.innerHTML = ""; // Clear existing rows
+  backupHistory.forEach((backup, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${backup.date}</td>
+            <td>${backup.time}</td>
+            <td>${backup.status}</td>
+            <td>
+                <button onclick="retryBackup(${index})">Retry</button>
+            </td>
+        `;
+    tableBody.appendChild(row);
+  });
+}
+
+// Create Backup
+document.getElementById("backupBtn").addEventListener("click", () => {
+  alert("Backup initiated!");
+  // Simulate Backup Success
+  setTimeout(() => {
+    const newBackup = {
+      date: new Date().toISOString().slice(0, 10),
+      time: new Date().toLocaleTimeString(),
+      status: "Successful",
+    };
+    backupHistory.push(newBackup);
+    displayBackupHistory();
+    alert("Backup completed successfully!");
+  }, 2000);
+});
+
+// Retry Backup
+function retryBackup(index) {
+  alert(`Retrying backup for ${backupHistory[index].date}...`);
+  setTimeout(() => {
+    backupHistory[index].status = "Successful";
+    displayBackupHistory();
+    alert("Backup retried successfully!");
+  }, 2000);
+}
+
+// Restore Data
+document.getElementById("restoreBtn").addEventListener("click", () => {
+  alert("Restore functionality coming soon!");
+});
+
+// Save System Settings
+document.getElementById("settingsForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const timeZone = document.getElementById("timeZone").value;
+  const language = document.getElementById("language").value;
+  const notifications = document.getElementById("notifications").checked;
+
+  alert(`Settings Saved:
+    - Time Zone: ${timeZone}
+    - Language: ${language}
+    - Notifications: ${notifications ? "Enabled" : "Disabled"}`);
+});
+
+// Preview Changes
+document.getElementById("previewChangesBtn").addEventListener("click", () => {
+  const timeZone = document.getElementById("timeZone").value;
+  const language = document.getElementById("language").value;
+  const notifications = document.getElementById("notifications").checked;
+
+  alert(`Preview Changes:
+    - Time Zone: ${timeZone}
+    - Language: ${language}
+    - Notifications: ${notifications ? "Enabled" : "Disabled"}`);
+});
+
+// Initial Display
+displayBackupHistory();
+
+// script.js
+
+// Mock Data for Track Changes
+const trackChangesLogs = [
+  {
+    datetime: "2024-11-18 10:15 AM",
+    action: "Changed user role",
+    admin: "Admin_01",
+    priority: "Critical",
+  },
+  {
+    datetime: "2024-11-17 02:30 PM",
+    action: "Updated system settings",
+    admin: "Admin_02",
+    priority: "High",
+  },
+  {
+    datetime: "2024-11-16 11:00 AM",
+    action: "Created a new user",
+    admin: "Admin_03",
+    priority: "Low",
+  },
+];
+
+// Mock Data for Security Logs
+const securityLogs = [
+  {
+    datetime: "2024-11-18 10:00 AM",
+    event: "Failed login attempt",
+    status: "Warning",
+    details: "3 attempts from IP 192.168.1.1",
+  },
+  {
+    datetime: "2024-11-17 08:45 PM",
+    event: "Unauthorized access attempt",
+    status: "Critical",
+    details: "Attempted access to restricted area",
+  },
+  {
+    datetime: "2024-11-16 05:20 PM",
+    event: "Successful login",
+    status: "Normal",
+    details: "User logged in from IP 10.0.0.5",
+  },
+];
+
+// Display Track Changes Logs
+function displayTrackChanges() {
+  const tableBody = document.getElementById("trackChangesTable");
+  tableBody.innerHTML = ""; // Clear existing rows
+  trackChangesLogs.forEach((log) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${log.datetime}</td>
+            <td>${log.action}</td>
+            <td>${log.admin}</td>
+            <td class="priority-${log.priority.toLowerCase()}">${
+      log.priority
+    }</td>
+        `;
+    tableBody.appendChild(row);
+  });
+}
+
+// Display Security Logs
+function displaySecurityLogs() {
+  const tableBody = document.getElementById("securityLogsTable");
+  tableBody.innerHTML = ""; // Clear existing rows
+  securityLogs.forEach((log) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${log.datetime}</td>
+            <td>${log.event}</td>
+            <td>${log.status}</td>
+            <td>${log.details}</td>
+        `;
+    tableBody.appendChild(row);
+  });
+}
+
+// Export Logs
+document.getElementById("exportLogsBtn").addEventListener("click", () => {
+  const logs = [...trackChangesLogs, ...securityLogs];
+  const blob = new Blob([JSON.stringify(logs, null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "audit_logs.json";
+  a.click();
+  URL.revokeObjectURL(url);
+  alert("Logs exported successfully!");
+});
+
+// Initialize Display
+displayTrackChanges();
+displaySecurityLogs();

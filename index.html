@@ -6,12 +6,8 @@
     <title>Modern UI Dashboard</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jsgantt-improved/2.7.3/jsgantt-improved.min.css"
     />
   </head>
   <body>
@@ -257,17 +253,17 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#support-tickets"
+                <a href="#support-tickets" data-section="help-center"
                   ><i class="fas fa-ticket-alt"></i> Support Tickets</a
                 >
               </li>
               <li>
-                <a href="#knowledge-base"
+                <a href="#knowledge-base" data-section="knowledge-base"
                   ><i class="fas fa-book-open"></i> Knowledge Base</a
                 >
               </li>
               <li>
-                <a href="#contact-support"
+                <a href="#contact-support" data-section="contact-support"
                   ><i class="fas fa-headset"></i> Contact Support</a
                 >
               </li>
@@ -280,17 +276,19 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#dashboard-analytics"
+                <a
+                  href="#dashboard-analytics"
+                  data-section="dashboard-analytics"
                   ><i class="fas fa-chart-line"></i> Dashboard Analytics</a
                 >
               </li>
               <li>
-                <a href="#custom-reports"
+                <a href="#custom-reports" data-section="report-container"
                   ><i class="fas fa-file-invoice"></i> Custom Reports</a
                 >
               </li>
               <li>
-                <a href="#historical-data"
+                <a href="#historical-data" data-section="historical-data"
                   ><i class="fas fa-archive"></i> Historical Data</a
                 >
               </li>
@@ -303,17 +301,17 @@
             >
             <ul class="submenu">
               <li>
-                <a href="#user-management"
+                <a href="#user-management" data-section="admin-panel"
                   ><i class="fas fa-user-edit"></i> User Management</a
                 >
               </li>
               <li>
-                <a href="#system-configuration"
+                <a href="#system-configuration" data-section="system-config"
                   ><i class="fas fa-tools"></i> System Configuration</a
                 >
               </li>
               <li>
-                <a href="#audit-logs"
+                <a href="#audit-logs" data-section="audit-logs"
                   ><i class="fas fa-file-alt"></i> Audit Logs</a
                 >
               </li>
@@ -1458,11 +1456,581 @@
               </table>
             </div>
           </section>
+
+          <section id="help-center" class="section" data-section="help-center">
+            <h2>Help Center</h2>
+
+            <!-- Create New Ticket -->
+            <div class="create-ticket">
+              <h3>Create New Ticket</h3>
+              <form id="new-ticket-form">
+                <label for="issue-category">Issue Category:</label>
+                <select id="issue-category" required>
+                  <option value="">Select a category</option>
+                  <option value="technical">Technical Issue</option>
+                  <option value="billing">Billing</option>
+                  <option value="account">Account Issue</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <label for="priority-level">Priority Level:</label>
+                <select id="priority-level" required>
+                  <option value="">Select priority</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+
+                <label for="ticket-description">Description:</label>
+                <textarea
+                  id="ticket-description"
+                  placeholder="Describe your issue..."
+                  required
+                ></textarea>
+
+                <label for="ticket-attachment">Attach File (Optional):</label>
+                <input
+                  type="file"
+                  id="ticket-attachment"
+                  accept=".png, .jpg, .jpeg, .pdf, .docx"
+                />
+
+                <button type="submit">Submit Ticket</button>
+              </form>
+            </div>
+
+            <div class="view-tickets">
+              <h3>My Tickets</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Issue Category</th>
+                    <th>Status</th>
+                    <th>Submitted On</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#12345</td>
+                    <td>Technical Issue</td>
+                    <td>In Progress</td>
+                    <td>2024-11-19</td>
+                    <td>
+                      <button
+                        onclick="showTicketModal('12345')"
+                        class="view-button"
+                      >
+                        View
+                      </button>
+                      <button onclick="updateTicket()">Update</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Ticket Modal -->
+            <div id="ticket-modal" class="modal">
+              <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2>Ticket Details</h2>
+                <p><strong>Ticket ID:</strong> #12345</p>
+                <p><strong>Issue Category:</strong> Technical Issue</p>
+                <p><strong>Status:</strong> In Progress</p>
+                <p>
+                  <strong>Description:</strong> The application crashes on
+                  login.
+                </p>
+
+                <h3>Add Update</h3>
+                <form id="modal-update-form">
+                  <label for="modal-update-message">Message:</label>
+                  <textarea
+                    id="modal-update-message"
+                    required
+                    placeholder="Add your update..."
+                  ></textarea>
+                  <button type="submit">Submit Update</button>
+                </form>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="knowledge-base"
+            class="section"
+            data-section="knowledge-base"
+          >
+            <h2>Knowledge Base</h2>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+              <h3>FAQs</h3>
+              <div class="faq-category">
+                <h4>General Questions</h4>
+                <ul>
+                  <li>
+                    <button class="faq-question">What is the platform?</button>
+                    <div class="faq-answer">
+                      The platform is a comprehensive tool for managing client
+                      relationships, projects, and analytics.
+                    </div>
+                  </li>
+                  <li>
+                    <button class="faq-question">
+                      How do I reset my password?
+                    </button>
+                    <div class="faq-answer">
+                      Go to Account Settings, select "Change Password," and
+                      follow the instructions.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="faq-category">
+                <h4>Technical Issues</h4>
+                <ul>
+                  <li>
+                    <button class="faq-question">How do I report a bug?</button>
+                    <div class="faq-answer">
+                      Submit a support ticket through the Help Center and
+                      include detailed information about the issue.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tutorial-section">
+              <h3>Tutorials</h3>
+              <div class="knowledge-search">
+                <input
+                  type="text"
+                  id="search-bar"
+                  placeholder="Search Knowledge Base..."
+                />
+              </div>
+
+              <div class="tutorial-list">
+                <div class="tutorial">
+                  <h4>Getting Started with the Platform</h4>
+                  <p>
+                    Learn the basics of navigating and using the platform
+                    effectively.
+                  </p>
+                  <a
+                    href="tutorials/getting-started.html"
+                    target="_blank"
+                    class="view-tutorial"
+                    >View Tutorial</a
+                  >
+                </div>
+                <div class="tutorial">
+                  <h4>Advanced Reporting Features</h4>
+                  <p>
+                    Understand how to generate and customize detailed reports.
+                  </p>
+                  <a
+                    href="tutorials/advanced-reporting.html"
+                    target="_blank"
+                    class="view-tutorial"
+                    >View Tutorial</a
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="contact-support"
+            class="section"
+            data-section="contact-support"
+          >
+            <div class="live-chat">
+              <button id="open-chat" class="chat-button">Live Chat</button>
+              <div id="chat-box" class="chat-box">
+                <div class="chat-header">
+                  <h4>Support Chat</h4>
+                  <button id="close-chat" class="close-chat">&times;</button>
+                </div>
+                <div class="chat-body">
+                  <div class="chat-message bot">
+                    Hello! How can I assist you today?
+                  </div>
+                </div>
+                <div class="chat-footer">
+                  <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Type your message..."
+                  />
+                  <button id="send-message">Send</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="email-support">
+              <h3>Email Support</h3>
+              <form id="email-support-form">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required />
+
+                <label for="message">Message:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+
+                <button type="submit" class="submit-button">Send</button>
+              </form>
+            </div>
+          </section>
+
+          <section
+            id="dashboard-analytics"
+            class="section"
+            data-section="dashboard-analytics"
+          >
+            <h2>Dashboard Analytics</h2>
+            <div class="kpi-overview">
+              <h3>Key Performance Indicators</h3>
+              <div class="kpi-cards">
+                <div class="kpi-card">
+                  <h4>Revenue Growth</h4>
+                  <div class="kpi-value">+15%</div>
+                  <div class="kpi-chart" id="revenue-chart"></div>
+                </div>
+                <div class="kpi-card">
+                  <h4>Project Completion Rate</h4>
+                  <div class="kpi-value">85%</div>
+                  <div class="kpi-chart" id="project-chart"></div>
+                </div>
+                <div class="kpi-card">
+                  <h4>Customer Satisfaction</h4>
+                  <div class="kpi-value">4.7/5</div>
+                  <div class="kpi-chart" id="satisfaction-chart"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-performance">
+              <h3>Team Performance</h3>
+              <div class="performance-metrics">
+                <div class="metric">
+                  <h4>Task Completion Rate</h4>
+                  <div id="task-completion-chart"></div>
+                  <div id="heatmap"></div>
+                </div>
+                <div class="metric">
+                  <h4>Team Rankings</h4>
+                  <ul>
+                    <li>John Doe - 95%</li>
+                    <li>Jane Smith - 90%</li>
+                    <li>Alex Brown - 85%</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="report-container"
+            class="section"
+            data-section="report-container"
+          >
+            <h1>Custom Reports</h1>
+            <!-- Generate New Report Section -->
+            <section class="generate-report">
+              <h2>Generate New Report</h2>
+              <form id="generateReportForm">
+                <label for="dateRange">Date Range:</label>
+                <input type="date" id="startDate" name="startDate" required />
+                <input type="date" id="endDate" name="endDate" required />
+
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                  <option value="sales">Sales</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="development">Development</option>
+                </select>
+
+                <label for="metrics">Metrics:</label>
+                <select id="metrics" name="metrics" multiple>
+                  <option value="revenue">Revenue</option>
+                  <option value="tasks_completed">Tasks Completed</option>
+                  <option value="customer_satisfaction">
+                    Customer Satisfaction
+                  </option>
+                </select>
+
+                <label for="format">Export Format:</label>
+                <select id="format" name="format">
+                  <option value="pdf">PDF</option>
+                  <option value="csv">CSV</option>
+                  <option value="excel">Excel</option>
+                </select>
+
+                <button type="submit">Generate Report</button>
+              </form>
+            </section>
+
+            <!-- Schedule Reports Section -->
+            <section class="schedule-reports">
+              <h2>Schedule Reports</h2>
+              <form id="scheduleReportForm">
+                <label for="reportType">Report Type:</label>
+                <select id="reportType" name="reportType">
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
+
+                <label for="email">Send to Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="user@example.com"
+                  required
+                />
+
+                <label for="timezone">Time Zone:</label>
+                <select id="timezone" name="timezone">
+                  <option value="UTC">UTC</option>
+                  <option value="EST">EST</option>
+                  <option value="PST">PST</option>
+                </select>
+
+                <button type="submit">Schedule Report</button>
+              </form>
+            </section>
+          </section>
+
+          <section
+            id="historical-data"
+            class="section"
+            data-section="historical-data"
+          >
+            <h1>Historical Data</h1>
+            <section class="archive-reports">
+              <h2>Archive Reports</h2>
+              <!-- Search and Filter -->
+              <div class="search-filter">
+                <input
+                  type="text"
+                  id="searchKeyword"
+                  placeholder="Search by keyword or tag..."
+                />
+                <select id="categoryFilter">
+                  <option value="">All Categories</option>
+                  <option value="sales">Sales</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="development">Development</option>
+                </select>
+                <input type="date" id="startDateFilter" />
+                <input type="date" id="endDateFilter" />
+                <button id="searchButton">Search</button>
+              </div>
+
+              <!-- Report List -->
+              <div class="report-list">
+                <ul id="reportItems">
+                  <!-- Dynamic List of Reports -->
+                </ul>
+              </div>
+            </section>
+          </section>
+
+          <section id="admin-panel" class="section" data-section="admin-panel">
+            <h1>Super Admin Panel</h1>
+
+            <!-- User Management Section -->
+            <section class="user-management">
+              <h2>User Management</h2>
+              <div class="user-actions">
+                <button id="createUserBtn">Create New User</button>
+                <button id="bulkUploadBtn">Bulk Upload Users</button>
+              </div>
+              <div id="userFormContainer" class="hidden">
+                <form id="userForm">
+                  <label for="username">Username:</label>
+                  <input type="text" id="username" required />
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" required />
+                  <label for="role">Role:</label>
+                  <select id="role">
+                    <option value="admin">Admin</option>
+                    <option value="editor">Editor</option>
+                    <option value="viewer">Viewer</option>
+                  </select>
+                  <button type="submit">Save User</button>
+                </form>
+              </div>
+              <div class="user-list">
+                <h3>Users</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="userTableBody">
+                    <!-- Dynamic Content -->
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Access Logs Section -->
+            <section class="access-logs">
+              <h2>Access Logs</h2>
+              <div class="log-filters">
+                <input
+                  type="text"
+                  id="searchLogs"
+                  placeholder="Search by username, IP, or activity..."
+                />
+                <input type="date" id="filterDate" />
+                <button id="filterLogsBtn">Filter Logs</button>
+              </div>
+              <div class="log-list">
+                <h3>Logs</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Activity</th>
+                      <th>Date & Time</th>
+                      <th>IP Address</th>
+                    </tr>
+                  </thead>
+                  <tbody id="logTableBody">
+                    <!-- Dynamic Content -->
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <section
+            id="system-config"
+            class="section"
+            data-section="system-config"
+          >
+            <h1>System Configuration</h1>
+
+            <!-- Backup & Restore Section -->
+            <section class="backup-restore">
+              <h2>Backup & Restore</h2>
+              <div class="backup-actions">
+                <button id="backupBtn">Create Backup</button>
+                <button id="restoreBtn">Restore Data</button>
+              </div>
+              <div class="backup-history">
+                <h3>Backup History</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="backupHistoryTableBody">
+                    <!-- Dynamic Content -->
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Update System Settings Section -->
+            <section class="system-settings">
+              <h2>Update System Settings</h2>
+              <form id="settingsForm">
+                <label for="timeZone">Default Time Zone:</label>
+                <select id="timeZone">
+                  <option value="UTC">UTC</option>
+                  <option value="EST">EST</option>
+                  <option value="PST">PST</option>
+                  <option value="CET">CET</option>
+                </select>
+
+                <label for="language">Language Preference:</label>
+                <select id="language">
+                  <option value="en">English</option>
+                  <option value="fr">French</option>
+                  <option value="es">Spanish</option>
+                </select>
+
+                <label for="notifications">System Notifications:</label>
+                <input type="checkbox" id="notifications" checked /> Enable
+                Notifications
+
+                <div class="settings-actions">
+                  <button type="button" id="previewChangesBtn">
+                    Preview Changes
+                  </button>
+                  <button type="submit">Save Settings</button>
+                </div>
+              </form>
+            </section>
+          </section>
+
+          <section id="audit-logs" class="section" data-section="audit-logs">
+            <h1>Audit Logs</h1>
+
+            <!-- Track Changes Section -->
+            <section class="track-changes">
+              <h2>Track Changes</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Action</th>
+                    <th>Admin</th>
+                    <th>Priority</th>
+                  </tr>
+                </thead>
+                <tbody id="trackChangesTable">
+                  <!-- Dynamic Content -->
+                </tbody>
+              </table>
+            </section>
+
+            <!-- Security Logs Section -->
+            <section class="security-logs">
+              <h2>Security Logs</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Event</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody id="securityLogsTable">
+                  <!-- Dynamic Content -->
+                </tbody>
+              </table>
+              <button id="exportLogsBtn">Export Logs</button>
+            </section>
+          </section>
         </section>
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsgantt-improved/2.7.3/jsgantt-improved.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
